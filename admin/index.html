@@ -66,10 +66,42 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-
-        <!-- ///////////// START 主要内容  ///////////////-->
-        <div></div>
-        <!-- ///////////// END 主要内容  ///////////////-->
+        
+        <!-- START 侧边栏-->
+        <section class="side-wrap">
+            <h1 class="user-wrap">
+                <a href="javascript:;" class="js-showIframe" data-id="userCenter" data-href="./view/acount/userCenter.html">
+                    <span class="userHead"><i class="glyphicon glyphicon-user"></i></span>
+                    <span class="userName">用户名</span>
+                </a>
+            </h1>
+            <div class="side-box">
+                <!--class="current"-->
+                <a class="js-showIframe" data-id="design" href="javascript:;"><i class="glyphicon glyphicon-paperclip"></i><span>独立设计师</span></a>
+                <a class="js-showIframe" data-id="modul" href="javascript:;"><i class="glyphicon glyphicon-leaf"></i><span>模特</span></a>
+                <a class="js-showIframe" data-id="proxy" href="javascript:;"><i class="glyphicon glyphicon-tag"></i><span>代理商</span></a>
+                <a class="js-showIframe" data-id="product" href="javascript:;"><i class="glyphicon glyphicon-bed"></i><span>厂家</span></a>
+                <a class="js-showIframe" data-id="anlisy" href="javascript:;"><i class="glyphicon glyphicon-scale"></i><span>统计分析</span></a>
+                <a class="js-showIframe" data-id="faq" href="javascript:;"><i class="glyphicon glyphicon-question-sign"></i><span>FAQ</span></a>
+            </div>
+        </section>
+        <!-- END 侧边栏-->
+        
+        <!-- START 顶栏 -->
+        <section class="top-wrap">
+            <div class="top-box">
+                <a class="off" href="javascript:;"><i class="glyphicon glyphicon-off"></i></a>
+                <a class="setting js-showIframe" data-id="userCenter" data-href="./view/acount/userCenter.html" href="javascript:;"><i class="glyphicon glyphicon-cog"></i></a>
+                <a class="user js-showIframe" data-id="userCenter" data-href="./view/acount/userCenter.html" href="javascript:;"><i class="glyphicon glyphicon-user"></i><span>用户名</span></a>
+            </div>
+        </section>
+        <!-- END 顶栏 -->
+        
+        <!-- START 主要内容区域-->
+        <section class="main-wrap" id="js-iframeWrap">
+            <iframe id="userCenter" frameborder="0" scrolling="auto" src="./view/acount/userCenter.html"></iframe>
+        </section>
+        <!-- END 主要内容区域-->
 
         <!-- TAG 通用脚本 -->
         <script src="./js/LAB.min.js"></script>
@@ -81,8 +113,24 @@
                 .script('./vender/bootstrap-3.3.5-dist/js/bootstrap.min.js').wait()
                 .script('./js/jquery.mockjax.min.js').wait()
                 .script('./js/config.min.js?timestamp=' + timestamp).wait()
-                .script('./js/admin.common.min.js?timestamp=' + timestamp).wait()
-                .script('./js/acount.min.js?timestamp=' + timestamp).wait();
+                .script('./js/admin.common.min.js?timestamp=' + timestamp).wait(function() {
+                    
+                    // 在 iframe 中显示不同的页面 
+                    $('.js-showIframe').on('click', function() {
+                        var self = $(this);
+                        var href = self.attr('data-href');
+                        var id = self = self.attr('data-id');
+                        var targetEle = $('#' + id);
+                        
+                        $('iframe').hide();
+                        
+                        if (targetEle.length > 0) {
+                            targetEle.show();
+                        } else {
+                            $('#js-iframeWrap').append('<iframe id="'+ id +'" frameborder="0" scrolling="auto" src="'+ href +'"></iframe>');
+                        }
+                    });
+                });
         </script>
     </body>
 </html>

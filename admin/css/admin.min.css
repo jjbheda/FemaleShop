@@ -225,3 +225,129 @@
 	width: 50px;
 	height: 50px;
 }
+
+/* 首页样式
+------------------------------*/
+.side-wrap {
+	position: fixed;
+	z-index: 10000;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 180px;
+	height: 100%;
+	background-color: #DE5C65;
+	border-right: 5px solid #EAB3B7;
+}
+
+.user-wrap {
+	padding: 20px 0;
+	text-align: center;
+	margin: 0;
+	background-color: #F9DADC;
+}
+.user-wrap a {
+	display: block;
+	color: #333;
+	text-decoration: none;
+}
+.userHead {
+	display: block;
+	width: 64px;
+	height: 64px;
+	line-height: 64px;
+	margin: 0 auto;
+	border-radius: 50%;
+	background-color: #DE5C65;
+	color: #F9DADC;
+	overflow: hidden;
+}
+.userName {
+	font-size: 16px;
+	color: #DE5C65;
+}
+
+.side-box {
+}
+.side-box a {
+	display: block;
+	padding-left: 20px;
+	padding: 12px 0 12px 20px;
+	font-size: 16px;
+	color: #F9DADC;
+	letter-spacing: 3px;
+}
+.side-box a.current {
+	background-color: #F58B92;
+	color: #EFE8E8;
+}
+.side-box a i {
+	position: relative;
+	z-index: 100;
+	top: 4px;
+}
+.side-box a span {
+	padding-left: 10px;
+}
+.side-box a:hover {
+	background-color: #F58B92;
+	color: #EFE8E8;
+}
+
+.top-wrap {
+	padding-left: 185px;
+	background-color: #DE5C65;
+	height: 44px;
+}
+.top-box {
+	padding-right: 20px;
+}
+.top-wrap a {
+	float: right;
+	font-size: 20px;
+	color: #EFDADB;
+	margin-left: 20px;
+	padding-top: 8px;
+	text-decoration: none;
+}
+.top-box .user {
+	padding-top: 5px;
+	font-size: 14px;
+}
+.top-box .user i {
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	background-color: #EFDADB;
+	color: #DE5C65;
+	border-radius: 50%;
+	font-size: 16px;
+}
+.top-box .user span {
+	padding-left: 10px;
+}
+.main-wrap {
+	position: fixed;
+	z-index: 1000;
+	left: 180px;
+	top: 44px;
+	right: 0;
+	bottom: 0;
+}
+.main-wrap iframe {
+	position: absolute;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* 用户中心样式
+--------------------------------*/
+.userCenter-wrap {
+	padding: 20px 50px;
+}
